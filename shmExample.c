@@ -177,10 +177,9 @@ void winCheck(char arr[][3])
             if(shm[26] == 'P')
             {
                 //critical section
+                winCheck(board);
                 chooseSpaceP();
-                printf("%c ", shm[0]);
-                shm[0] = shm[0]+1;
-                printf("%c", shm[0]);
+                winCheck(board);
                 shm[26] = 'C';
             }
             waitWhileEqual('C', shm);
@@ -194,10 +193,9 @@ void winCheck(char arr[][3])
             if(shm[26] == 'C')
             {
                 //critical section
+                winCheck(board);
                 chooseSpaceC();
-                printf("%c", shm[0]);
-                shm[0] = shm[0]+1;
-                printf("%c", shm[0]);
+                winCheck(board);
                 shm[26] = 'P';
             }
             waitWhileEqual('P', shm);
